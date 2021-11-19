@@ -15,16 +15,17 @@ section .text
 ; ----------------------- CODE -----------------------
 
 _start:
-	; mov bx, 5
+	; mov ebx, 5
 	; call fibonacci
 	
-	; mov bx, str
+	; mov ebx, str
 	; call print_string
 
-	mov bx, 3
-	mov cx, to_string_result
+	mov ebx, 12345
+	mov ecx, to_string_result
 	call num_to_string
-	mov bx, ax
+
+	mov ebx, to_string_result
 	call print_string
 
 .end:

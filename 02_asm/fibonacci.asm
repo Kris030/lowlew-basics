@@ -1,47 +1,47 @@
 
-; N in bx
+; N in ebx
 fibonacci:
 
 ; check if greater than zero
-	cmp bx, 0
+	cmp ebx, 0
 	jg .fib_1
 ; return 0
-	mov ax, 0
+	mov eax, 0
 	jmp .end
 
 ; check if == 1
 .fib_1:
-	cmp bx, 1
+	cmp ebx, 1
 	jne .fib_N
 ; return 1
-	mov ax, 1
+	mov eax, 1
 	jmp .end
 
 ; rest of the cases
 .fib_N:
 
 ; call with N - 1
-	push bx
-	sub bx, 1
+	push ebx
+	sub ebx, 1
 	call fibonacci
 
 ; call with N - 2
-	pop bx
-	push bx
+	pop ebx
+	push ebx
 
-	sub bx, 2
-; new local variable cx = fib(n - 1)
-	push cx
-	mov cx, ax
+	sub ebx, 2
+; new local variable ecx = fib(n - 1)
+	push ecx
+	mov ecx, eax
 	call fibonacci
 
-; return = fib(n - 2) + cx
-	add ax, cx
+; return = fib(n - 2) + ecx
+	add eax, ecx
 
-; pop cx variable
-	pop cx
+; pop ecx variable
+	pop ecx
 ; pop N
-	pop bx
+	pop ebx
 
 .end:
 	ret

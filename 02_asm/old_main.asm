@@ -14,7 +14,7 @@ section .text
 [bits 16]
 
 _start:
-	mov bx, str
+	mov ebx, str
 	call print_string
 end:
 	hlt
@@ -25,20 +25,20 @@ print_char:
 	int 0x10 ; BIOS interrupt, print [al] to screen
 	ret
 
-; string pointer in bx
+; string pointer in ebx
 print_string:
 	mov ah, 0xE
 ; loop starts here
 loop_label:
-	mov al, [bx]
+	mov al, [ebx]
 	int 0x10 ; BIOS interrupt, print [al] to screen
 
 ; move one char forward
 	inc bl
 
 ; check if char is 0
-	mov cx, [bx]
-	test cx, cx
+	mov ecx, [ebx]
+	test ecx, ecx
 ;	loop if not
 	jnz loop_label
 

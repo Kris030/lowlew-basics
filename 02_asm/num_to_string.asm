@@ -1,28 +1,54 @@
-; number in bx, buffer in cx
+; number in ebx, buffer in ecx
 num_to_string:
 
-	push ax
-	push bx
-	push dx
+; count the length in esi
+	push esi
+	xor esi, esi
+
+	push ebx
+	push ecx
+	push edx
 
 	.loop:
-	; DIVIDE
-	mov ax, bx
-	mov bx, 10
-	xor dx, dx
+; count++
+	inc esi
 
-	div bx
+	; DIVIDE
+	mov eax, ebx
+	mov ebx, 10
+	xor edx, edx
+
+	div ebx
 	; DIVIDE END
 
-	add dx, '0'
-	mov byte [cx], dl
-	inc cx
+	add edx, '0'
+	mov [ecx], edx
+	inc ecx
 
-	cmp ax, 0
+	mov ebx, eax
+
+	cmp eax, 0
 	jg .loop
 
-	pop dx
-	pop bx
-	pop ax
+	mov [ecx], word 0
+
+; return length
+	mov eax, esi
+
+; setup reverse buffer call
+; ----
+	dec ecx
+	mov ebx, ecx
+	sub ebx, esi
+
+	;call reverse_buffer
+; ----
+	pop edx
+	pop ecx
+	pop ebx
+
+	pop esi
 
 	ret
+
+%include "reverse_buffer.asm"
