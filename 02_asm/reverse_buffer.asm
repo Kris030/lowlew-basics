@@ -14,6 +14,7 @@ reverse_buffer:
 
 	mov edx, [ecx]
 
+; FIXME eax becomes random big int for some reasons
 	mov eax, [ebx]
 	mov [ecx], eax
 
