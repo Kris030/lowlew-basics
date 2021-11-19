@@ -12,16 +12,18 @@ reverse_buffer:
 	cmp ebx, ecx
 	jge .loop_end
 
-	mov edx, [ebx]
+	mov edx, [ecx]
 
-; mov [ebx], [ecx]
-	mov eax, [ecx]
-	mov [ebx], eax
+	mov eax, [ebx]
+	mov [ecx], eax
 
-	dec ebx
-	mov [ecx], edx
-	inc ecx
+	dec ecx
 
+	mov [ebx], edx
+
+	inc ebx
+
+	jmp .loop
 	.loop_end:
 
 	pop edx

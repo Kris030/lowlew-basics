@@ -2,35 +2,40 @@
 
 void itoa10(int val, char* res) {
 	
-	char* ptr1 = res;
+	char* ecx = res;
 
 	do {
 		int rem = val % 10;
 		rem += '0';
 		
-		*ptr1 = rem;
-		ptr1++;
+		*ecx = rem;
+		ecx++;
 		
 		val /= 10;
 	} while (val > 0);
 
-	*ptr1 = '\0';
-	ptr1--;
+	*ecx = '\0';
+	ecx--;
 
-	char* ptr2 = res;
-	char tmp;
-	while (ptr2 < ptr1) {
-		tmp = *ptr1;
-		*ptr1 = *ptr2;
-		ptr1--;
-		*ptr2 = tmp;
-		ptr2++;
+	char* ebx = res, eax, edx;
+	while (ebx < ecx) {
+		
+		edx = *ecx;
+
+		eax = *ebx;
+		*ecx = eax;
+		
+		ecx--;
+		
+		*ebx = edx;
+		
+		ebx++;
 	}
 }
 
 int main() {
-	char buff[4];
-	itoa10(234, buff);
+	char buff[20];
+	itoa10(524345, buff);
 	puts(buff);
 }
 

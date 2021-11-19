@@ -35,17 +35,15 @@ num_to_string:
 ; return length
 	mov eax, esi
 
-; setup reverse buffer call
-; ----
-	dec ecx
-	mov ebx, ecx
-	sub ebx, esi
-
-	;call reverse_buffer
-; ----
 	pop edx
 	pop ecx
 	pop ebx
+
+; setup reverse buffer call
+	mov ebx, ecx
+	add ecx, esi
+	dec ecx
+	call reverse_buffer
 
 	pop esi
 
