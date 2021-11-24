@@ -12,15 +12,15 @@ reverse_buffer:
 	cmp ebx, ecx
 	jge .loop_end
 
-	mov edx, [ecx]
+	mov dl, byte [ecx]
 
 ; FIXME eax becomes random big int for some reasons
-	mov eax, [ebx]
-	mov [ecx], eax
+	mov al, byte [ebx]
+	mov byte [ecx], al
 
 	dec ecx
 
-	mov [ebx], edx
+	mov byte [ebx], dl
 
 	inc ebx
 

@@ -15,17 +15,41 @@ section .text
 ; ----------------------- CODE -----------------------
 
 _start:
-	; mov ebx, 5
-	; call fibonacci
 	
-	; mov ebx, str
-	; call print_string
+	mov edx, 0	
 
-	mov ebx, 12345
-	mov ecx, to_string_result
+	.loop:
+
+	mov ebx, str_fib_p_0
+	call print_string
+
+	mov ebx, edx
+	mov ecx, buff_tostr
+	call num_to_string
+	mov ebx, buff_tostr
+	call print_string
+
+	mov ebx, str_fib_p_1
+	call print_string
+	
+	mov ebx, edx
+	call fibonacci
+
+	mov ebx, eax
+	mov ecx, buff_tostr
 	call num_to_string
 
-	mov ebx, to_string_result
+	mov ebx, buff_tostr
+	call print_string
+
+	mov ebx, str_newline
+	call print_string
+
+	inc edx
+	cmp edx, 20
+	jl .loop
+
+	mov ebx, str_finish
 	call print_string
 
 .end:
@@ -38,8 +62,11 @@ _start:
 
 ; ----------------------- DATA -----------------------
 
-str: db `done.\r\n`, 0
-to_string_result: times 10 db 0
+str_fib_p_0: db "fib(", 0
+str_fib_p_1: db ") = ", 0
+str_newline: db `\r\n`, 0
+str_finish: db `done.\r\n`, 0
+buff_tostr: times 10 db 0
 
 ; ----------------------- PADDING -----------------------
 
