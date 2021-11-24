@@ -10,7 +10,7 @@ print_string:
 	mov ah, 0Eh
 
 ; loop starts here
-.loop:
+	.loop:
 	
 ; move al = *ebx
 	mov al, byte [ebx]

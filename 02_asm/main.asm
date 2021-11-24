@@ -24,29 +24,31 @@ _start:
 	call print_string
 
 	mov ebx, edx
-	mov ecx, buff_tostr
+	mov ecx, buffer
 	call num_to_string
-	mov ebx, buff_tostr
+	mov ebx, buffer
 	call print_string
 
 	mov ebx, str_fib_p_1
 	call print_string
 	
 	mov ebx, edx
-	call fibonacci
+	;call fibonacci
+	mov ecx, buffer
+	call fibonacci_fast
 
 	mov ebx, eax
-	mov ecx, buff_tostr
+	mov ecx, buffer
 	call num_to_string
 
-	mov ebx, buff_tostr
+	mov ebx, buffer
 	call print_string
 
 	mov ebx, str_newline
 	call print_string
 
 	inc edx
-	cmp edx, 20
+	cmp edx, 38
 	jl .loop
 
 	mov ebx, str_finish
@@ -56,17 +58,18 @@ _start:
 	hlt
 	jmp .end
 
+%include "fibonacci_fast.asm"
 %include "num_to_string.asm"
 %include "print_string.asm"
-%include "fibonacci.asm"
+;%include "fibonacci.asm"
 
 ; ----------------------- DATA -----------------------
 
 str_fib_p_0: db "fib(", 0
 str_fib_p_1: db ") = ", 0
+str_finish:  db "done."
 str_newline: db `\r\n`, 0
-str_finish: db `done.\r\n`, 0
-buff_tostr: times 10 db 0
+buffer: times 160 db 0
 
 ; ----------------------- PADDING -----------------------
 

@@ -10,7 +10,7 @@ fibonacci:
 	jmp .end
 
 ; check if == 1
-.fib_1:
+	.fib_1:
 	cmp ebx, 1
 	jne .fib_N
 ; return 1
@@ -18,7 +18,7 @@ fibonacci:
 	jmp .end
 
 ; rest of the cases
-.fib_N:
+	.fib_N:
 
 ; call with N - 1
 	push ebx
@@ -38,10 +38,9 @@ fibonacci:
 ; return = fib(n - 2) + ecx
 	add eax, ecx
 
-; pop ecx variable
+; pop ecx variable and parameter N
 	pop ecx
-; pop N
 	pop ebx
 
-.end:
+	.end:
 	ret
