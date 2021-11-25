@@ -69,7 +69,7 @@ str_fib_p_0: db "fib(", 0
 str_fib_p_1: db ") = ", 0
 str_finish:  db "done."
 str_newline: db `\r\n`, 0
-buffer: times 160 db 0
+buffer: times 10 db 0
 
 ; ----------------------- PADDING -----------------------
 
