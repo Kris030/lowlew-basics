@@ -15,3 +15,5 @@ print_char:
 
 ; restore eax
 	pop eax
+
+	ret

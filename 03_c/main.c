@@ -4,7 +4,7 @@
 
 #include "main.h"
 
-/*
+
 void pog(int* p) {
 	(*p)++;
 }
@@ -13,7 +13,7 @@ int* sus() {
 	int j = 123;
 	return &j;
 }
-*/
+
 
 /*
 typedef struct {
@@ -28,8 +28,7 @@ typedef struct {
 */
 
 int main() {
-	ifGreaterPrint(5, 10)
-	/*
+	
 	int i = 10;
 	int* p = &i;
 
@@ -70,20 +69,20 @@ int main() {
 	puts("dead code");
 	asd:
 	
-	int* arr = malloc(10000000 * sizeof(int));
+	int* arr2 = (int*) malloc(10000000 * sizeof(int));
 
-	if (!arr)
+	if (!arr2)
 		puts("couldn't allocate memory");
 
 	printf("%d\n", arr);
-	free(arr);
+	free(arr2);
 
 	char b[10];
 	char d;
 
 	// b[11] == d
 
-	*/
+	
 
 	/*
 	rect* rs = malloc(10 * sizeof(rect));
@@ -100,5 +99,5 @@ int main() {
 }
 
 void test() {
-
+	puts("test called");
 }
