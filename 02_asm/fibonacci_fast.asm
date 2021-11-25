@@ -2,35 +2,45 @@
 ; declare constants
 %assign WORD_SIZE 2
 
-; N in ebx, buff in ecx
+; N in ebx
 fibonacci_fast:
 
+; variable b in eax
+
+; argument N / variable i
 	push ebx
+; variable a
 	push ecx
+; variable c
+	push edx
 
 ; don't bother with loop if N < 2
-	cmp bx, word WORD_SIZE
-	mov ax, bx	
+	cmp ebx, 2
+	mov eax, ebx
 	jl .end
 
-; set up fib(0), fib(1)
-	mov [ecx], word 0
-	add ecx, WORD_SIZE
-	mov [ecx], word 1
-	add ecx, WORD_SIZE
+; set up a = fib(0), b = fib(1)
+	mov ecx, 0
+	mov eax, 1
 
 	.loop:
-	add ecx, WORD_SIZE
 
-	mov ax, word [ecx - WORD_SIZE]
-	add ax, word [ecx - WORD_SIZE * 2]
-	mov [ecx], word ax
+; c = a + b
+	mov edx, ecx
+	add edx, eax
 
-	dec bx
-	cmp bx, 0
+; a = b
+	mov ecx, eax
+
+; b = c
+	mov eax, edx
+
+	dec ebx
+	cmp ebx, 1
 	jg .loop
 	
 	.end:
+	pop edx
 	pop ecx
 	pop ebx
 
