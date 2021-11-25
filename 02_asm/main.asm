@@ -15,46 +15,56 @@ section .text
 ; ----------------------- CODE -----------------------
 
 _start:
-	
+
+; i = 0
 	mov edx, 0	
 
 	.loop:
 
+; print "fib("
 	mov ebx, str_fib_p_0
 	call print_string
 
+; convert i to string
 	mov ebx, edx
 	mov ecx, buffer
 	call num_to_string
+; print it
 	mov ebx, buffer
 	call print_string
 
+; print ") = "
 	mov ebx, str_fib_p_1
 	call print_string
-	
+
+; fib(i)
 	mov ebx, edx
 	;call fibonacci
 	mov ecx, buffer
 	call fibonacci_fast
-
+; convert result to string
 	mov ebx, eax
 	mov ecx, buffer
 	call num_to_string
-
+; print result
 	mov ebx, buffer
 	call print_string
 
+; print newline
 	mov ebx, str_newline
 	call print_string
 
+; while (++i < ...)
 	inc edx
 	cmp edx, 38
 	jl .loop
 
+; print finish string
 	mov ebx, str_finish
 	call print_string
 
-.end:
+; hang CPU
+	.end:
 	hlt
 	jmp .end
 

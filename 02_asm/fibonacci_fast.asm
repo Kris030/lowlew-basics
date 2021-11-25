@@ -35,11 +35,13 @@ fibonacci_fast:
 ; b = c
 	mov eax, edx
 
+; while (--n > 1)
 	dec ebx
 	cmp ebx, 1
 	jg .loop
 	
 	.end:
+; clean up variables
 	pop edx
 	pop ecx
 	pop ebx

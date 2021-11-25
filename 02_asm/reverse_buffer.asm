@@ -14,7 +14,6 @@ reverse_buffer:
 
 	mov dl, byte [ecx]
 
-; FIXME eax becomes random big int for some reasons
 	mov al, byte [ebx]
 	mov byte [ecx], al
 
@@ -25,8 +24,8 @@ reverse_buffer:
 	inc ebx
 
 	jmp .loop
-	.loop_end:
 
+	.loop_end:
 	pop edx
 	pop ecx
 	pop ebx
