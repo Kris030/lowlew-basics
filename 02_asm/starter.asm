@@ -1,15 +1,15 @@
 
 ; ----------------------- ASSEMBLER DIRECTIVES -----------------------
-
-; boot sector offset
+zzz
+; [???]
 [org 0x7C00]
-; 16 bit code
+; [???]
 [bits 16]
 
 ; declare entry point
 global _start
 
-; our code
+; code section
 section .text
 
 ; ----------------------- CODE -----------------------
@@ -21,8 +21,8 @@ _start:
 
 ; ----------------------- PADDING -----------------------
 
-; padding till end of sector
+; [???]
 times 512 - 2 - ($-$$) db 0
 
-; boot signature
+; [???]
 dw 0xaa55
