@@ -6,15 +6,10 @@
 ; 16 bit code
 [bits 16]
 
-; declare entry point
-global _start
-
 ; our code
 section .text
 
 ; ----------------------- CODE -----------------------
-
-_start:
 
 ; i = 0
 	mov edx, 0	
