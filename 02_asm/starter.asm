@@ -1,20 +1,16 @@
 
 ; ----------------------- ASSEMBLER DIRECTIVES -----------------------
-zzz
+
 ; [???]
 [org 0x7C00]
 ; [???]
 [bits 16]
-
-; declare entry point
-global _start
 
 ; code section
 section .text
 
 ; ----------------------- CODE -----------------------
 
-_start:
 
 
 ; ----------------------- DATA -----------------------
