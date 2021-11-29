@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo pacman -Syu nasm qemu-headless gdb hexdump
+sudo pacman -Syu --needed nasm qemu-headless gdb hexdump
