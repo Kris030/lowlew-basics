@@ -1,2 +1,7 @@
 #!/bin/bash
 sudo pacman -Syu --needed nasm qemu-headless gdb hexdump
+wget https://raw.githubusercontent.com/Kris030/lowlew-basics/master/02_asm/compile
+wget https://raw.githubusercontent.com/Kris030/lowlew-basics/master/02_asm/run
+wget https://raw.githubusercontent.com/Kris030/lowlew-basics/master/02_asm/debug
+wget https://raw.githubusercontent.com/Kris030/lowlew-basics/master/02_asm/run_gdb
+echo '\nSetup done.'
