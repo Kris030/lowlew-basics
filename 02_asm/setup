@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo pacman -S --needed nasm qemu-headless gdb hexdump
+sudo pacman -S --needed --noconfirm wget nasm qemu-headless gdb hexdump
 wget https://raw.githubusercontent.com/Kris030/lowlew-basics/master/02_asm/compile
 wget https://raw.githubusercontent.com/Kris030/lowlew-basics/master/02_asm/run
 wget https://raw.githubusercontent.com/Kris030/lowlew-basics/master/02_asm/debug
