@@ -43,7 +43,9 @@ int main() {
 
 	func(s);
 
-	Rectangle r = { { 12, 11 }, 10, 9, "876543210" };
+	Rectangle r = { { 12, 11 }, 10, 9, "876543210" }, rs[2];
+	puts(sizeof(rs) == 2 * ((4 + 4) + (4 + 4 + 10)));
+
 	Rectangle *rp = &r;
 
 	printf("ternary and arrow operators: %s\n", rp->pos.x > 10 ? "true" : "false");
