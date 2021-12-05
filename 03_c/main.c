@@ -105,13 +105,13 @@ int main() {
 	// ------ bitwise operators ------
 
 	unsigned char n = 0b11100101;
-	pbin("original", n);
-	pbin("or", n | 0b11);
-	pbin("and", n & 0b11100000);
-	pbin("left shift", n << 1);
+	pbin("original",    n);
+	pbin("or",          n | 0b11);
+	pbin("and",         n & 0b11100000);
+	pbin("left shift",  n << 1);
 	pbin("right shift", n >> 1);
 	pbin("binary not", ~n);
-	pbin("xor", n ^ 0b111);
+	pbin("xor",         n ^ 0b111);
 }
 
 int _pbin(unsigned char n, char *p) {
