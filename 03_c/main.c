@@ -16,7 +16,7 @@ typedef struct {
 } Rectangle;
 
 void func(char str[]) {
-    printf("from function: ");
+	printf("from function: ");
 	puts(str);
 }
 // ------ basic syntax ------
@@ -52,12 +52,12 @@ int main() {
 	// ------ basic syntax ------
 
 	// ------ everything's a number ------
-    printf("characters are numbers: ");
+	printf("characters are numbers: ");
 	for (char c = 'A'; c < 'Z'; c++)
 		printf("%c", c);
 	printf("\n");
 
-    printf("pointers are numbers: ");
+	printf("pointers are numbers: ");
 	for (char* i = s; i < s + sizeof(s); i++)
 		printf("%c", *i);
 	printf("\n");
