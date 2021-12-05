@@ -95,6 +95,7 @@ int main() {
 
 	int j = 10;
 	printf("allmighty goto: x");
+	
 	loop:
 	printf("d");
 	if (j-- > 0)
@@ -103,7 +104,6 @@ int main() {
 	// ------ misc ------
 
 	// ------ bitwise operators ------
-
 	unsigned char n = 0b11100101;
 	pbin("original",    n);
 	pbin("or",          n | 0b11);
