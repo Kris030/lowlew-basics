@@ -30,7 +30,7 @@ long* sus() {
 	return &l;
 }
 // ------ pointer funcs ------
-void under();
+
 // ------ basic syntax ------
 int main() {
 	
