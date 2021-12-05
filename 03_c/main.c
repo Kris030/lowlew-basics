@@ -15,7 +15,7 @@ typedef struct {
 	char name[10];
 } Rectangle;
 
-void func(char str[]) {
+void func(const char str[]) {
 	printf("from function: %s %d\n", str, 123);
 }
 // ------ basic syntax ------
@@ -30,7 +30,7 @@ long* sus() {
 	return &l;
 }
 // ------ pointer funcs ------
-
+void pbin(const char str[], unsigned char m); // TODO remove
 // ------ basic syntax ------
 int main() {
 	
@@ -91,7 +91,7 @@ int main() {
 	// ------ dynamic memory ------
 
 	// ------ misc ------
-	under();
+	//under();
 
 	int j = 10;
 	printf("allmighty goto: x");
@@ -100,11 +100,42 @@ int main() {
 	if (j-- > 0)
 		goto loop;
 	printf("\n");
+	// ------ misc ------
 
+	// ------ bitwise operators ------
+
+	unsigned char n = 0b11100101;
+	pbin("original", n);
+	pbin("or", n | 0b11);
+	pbin("and", n & 0b11100000);
+	pbin("left shift", n << 1);
+	pbin("right shift", n >> 1);
+	pbin("binary not", ~n);
+	pbin("xor", n ^ 0b111);
 }
 
+int _pbin(unsigned char n, char *p) {
+	int r = 1;
+	if (n >> 1)
+		r += _pbin(n >> 1, p - 1);
+	*p = '0' + (n & 1);
+	return r;
+}
+void pbin(const char str[], unsigned char n) {
+	char arr[9];
+	arr[8] = '\0';
+
+	int r = _pbin(n, arr + 7);
+
+	for (int i = 0; i < 8 - r; i++)
+		printf("0");
+
+	printf("%s - %s\n", arr + 8 - r, str);
+}
+// ------ bitwise operators ------
+
+// ------ misc ------
 void under() {
 	puts("headers: hello I'm under the water please help");
 }
-
 // ------ misc ------
