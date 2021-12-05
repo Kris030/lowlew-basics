@@ -116,11 +116,8 @@ int main() {
 
 int _pbin(unsigned char n, char *p) {
 	unsigned char s = n >> 1;
-	int r = 1;
-	if (s)
-		r += _pbin(s, p - 1);
 	*p = '0' + (n & 1);
-	return r;
+	return s ? _pbin(s, p - 1) + 1 : 1;
 }
 void pbin(const char str[], unsigned char n) {
 	char arr[9]; arr[8] = '\0';
