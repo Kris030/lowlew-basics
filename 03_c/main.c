@@ -115,22 +115,21 @@ int main() {
 }
 
 int _pbin(unsigned char n, char *p) {
+	unsigned char s = n >> 1;
 	int r = 1;
-	if (n >> 1)
-		r += _pbin(n >> 1, p - 1);
+	if (s)
+		r += _pbin(s, p - 1);
 	*p = '0' + (n & 1);
 	return r;
 }
 void pbin(const char str[], unsigned char n) {
-	char arr[9];
-	arr[8] = '\0';
+	char arr[9]; arr[8] = '\0';
+	int r = 8 - _pbin(n, arr + 7);
 
-	int r = _pbin(n, arr + 7);
-
-	for (int i = 0; i < 8 - r; i++)
+	for (int i = 0; i < r; i++)
 		printf("0");
 
-	printf("%s - %s\n", arr + 8 - r, str);
+	printf("%s - %s\n", arr + r, str);
 }
 // ------ bitwise operators ------
 
