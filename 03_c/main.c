@@ -36,7 +36,7 @@ int main() {
 	
 	int a = MY_CONST + MY_MACRO(4, 8);
 	char c = 'c', b = 'b';
-	char s[] = "hello world";
+	char s[] = "Hello World!";
 	int i[10];
 
 	int *p = &a, v = *p;
@@ -53,7 +53,7 @@ int main() {
 
 	// ------ everything's a number ------
 	printf("characters are numbers: ");
-	for (char c = 'A'; c < 'Z'; c++)
+	for (char c = 'A'; c <= 'Z'; c++)
 		printf("%c", c);
 	printf("\n");
 

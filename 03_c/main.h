@@ -5,4 +5,3 @@ void under();
 void pbin(const char str[], unsigned char m);
 
 #endif
-
