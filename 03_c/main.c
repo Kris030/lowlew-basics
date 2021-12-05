@@ -16,8 +16,7 @@ typedef struct {
 } Rectangle;
 
 void func(char str[]) {
-	printf("from function: ");
-	puts(str);
+	printf("from function: %s %d", 123, str);
 }
 // ------ basic syntax ------
 
@@ -40,8 +39,7 @@ int main() {
 	char s[] = "hello world";
 	int i[10];
 
-	int *p = &a;
-	int v = *p;
+	int *p = &a, v = *p;
 
 	func(s);
 
