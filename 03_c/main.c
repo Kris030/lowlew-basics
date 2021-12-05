@@ -30,7 +30,7 @@ long* sus() {
 	return &l;
 }
 // ------ pointer funcs ------
-void pbin(const char str[], unsigned char m); // TODO remove
+
 // ------ basic syntax ------
 int main() {
 	
@@ -91,7 +91,7 @@ int main() {
 	// ------ dynamic memory ------
 
 	// ------ misc ------
-	//under();
+	under();
 
 	int j = 10;
 	printf("allmighty goto: x");
