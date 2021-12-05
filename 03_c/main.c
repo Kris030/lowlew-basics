@@ -25,6 +25,9 @@ int main() {
 	func();
 	// ------ basic syntax ------
 
+	// ------ everything's a number ------
+	
+	// ------ everything's a number ------
 
 	// ------ pointer fun ------
 
