@@ -17,8 +17,8 @@ typedef struct {
 	char name[10];
 } Rectangle;
 
-void func(const char str[]) {
-	printf("from function: %s %d\n", str, 123);
+void func(const char str[], int a) {
+	printf("from function: %s %d\n", str, a);
 }
 // ------ basic syntax ------
 
@@ -35,15 +35,15 @@ long* sus() {
 
 // ------ basic syntax ------
 int main() {
-	
+
 	int a = MY_CONST + MY_MACRO(4, 8);
 	char c = 'c', b = 'b';
 	char s[] = "Hello World!";
 	int i[10];
 
-	int *p = &a, v = *p;
+	int* p = &a, v = *p;
 
-	func(s);
+	func(s, a);
 
 	Rectangle r = { { 12, 11 }, 10, 9, "876543210" }, rs[2];
 	puts(sizeof(rs) == 2 * ((4 + 4) + (4 + 4 + 10)) ? "true" : "false");
