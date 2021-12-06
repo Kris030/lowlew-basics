@@ -4,8 +4,8 @@
 
 #include "main.h"
 
-#define MY_CONST 654
-#define MY_MACRO(a, b) (a) + (b)
+#define MY_CONST 2
+#define MY_MACRO(type, name, a, b) type name = (a) * (b);
 
 typedef struct {
 	int x, y;
@@ -36,16 +36,17 @@ long* sus() {
 // ------ basic syntax ------
 int main() {
 
-	int a = MY_CONST + MY_MACRO(4, 8);
+	MY_MACRO(int, a, 2 + MY_CONST, 2);
 	char c = 'c', b = 'b';
-	char s[] = "Hello World!";
-	int i[10];
+	const char s[] = "Hello World!";
+	const int il = 10;
+	int ints[il] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
 	int* p = &a, v = *p;
 
-	func(s, a);
+	func(s, v);
 
-	Rectangle r = { { 12, 11 }, 10, 9, "876543210" }, rs[2];
+	Rectangle r = { { 12, 11 }, 10, 9, "876543210" }, rs[2] = { r };
 	puts(sizeof(rs) == 2 * ((4 + 4) + (4 + 4 + 10)) ? "true" : "false");
 
 	Rectangle *rp = &r;
@@ -60,13 +61,13 @@ int main() {
 	printf("\n");
 
 	printf("pointers are numbers: ");
-	for (char* i = s; i < s + sizeof(s); i++)
-		printf("%c", *i);
+	for (int* i = ints; i < ints + il; i++)
+		printf("%d", *i);
 	printf("\n");
 	// ------ everything's a number ------
 
 	// ------ pointer fun ------
-	int *k = 0;
+	int* k = 0;
 	k++;
 	printf("pointer arimethric: %p, ", k);
 
@@ -97,8 +98,8 @@ int main() {
 
 	int j = 10;
 	printf("allmighty goto: x");
-	
-	loop:
+
+loop:
 	printf("d");
 	if (j-- > 0)
 		goto loop;
@@ -106,17 +107,19 @@ int main() {
 	// ------ misc ------
 
 	// ------ bitwise operators ------
+	puts("\nBitwise operators:");
 	unsigned char n = 0b11100101;
-	pbin("original",    n);
-	pbin("or",          n | 0b11);
-	pbin("and",         n & 0b11100000);
-	pbin("left shift",  n << 1);
+	pbin("original", n);
+	pbin("or", n | 0b11);
+	pbin("and", n & 0b11100000);
+	pbin("left shift", n << 1);
 	pbin("right shift", n >> 1);
 	pbin("binary not", ~n);
-	pbin("xor",         n ^ 0b111);
+	pbin("xor", n ^ 0b111);
+	pbin("boolean not", !!n);
 }
 
-int _pbin(unsigned char n, char *p) {
+int _pbin(unsigned char n, char* p) {
 	unsigned char s = n >> 1;
 	*p = '0' + (n & 1);
 	return s ? _pbin(s, p - 1) + 1 : 1;
