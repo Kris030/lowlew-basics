@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "main.h"
+
 #define MY_CONST 654
 #define MY_MACRO(a, b) (a) + (b)
 
